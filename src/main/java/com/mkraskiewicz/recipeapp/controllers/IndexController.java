@@ -1,10 +1,5 @@
 package com.mkraskiewicz.recipeapp.controllers;
 
-import com.mkraskiewicz.recipeapp.model.Category;
-import com.mkraskiewicz.recipeapp.model.UnitOfMeasure;
-import com.mkraskiewicz.recipeapp.repositories.CategoryRepository;
-import com.mkraskiewicz.recipeapp.repositories.RecipeRepository;
-import com.mkraskiewicz.recipeapp.repositories.UnitOfMeasureRepository;
 import com.mkraskiewicz.recipeapp.services.RecipeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

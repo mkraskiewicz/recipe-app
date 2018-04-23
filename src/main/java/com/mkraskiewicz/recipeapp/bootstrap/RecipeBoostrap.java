@@ -38,7 +38,6 @@ public class RecipeBoostrap implements ApplicationListener<ContextRefreshedEvent
     private List<Recipe> getRecipies(){
 
         List<Recipe> recipes = new ArrayList<>(2);
-        Recipe perfectGuacamole = new Recipe();
 
 
         //Get Unity Measures
