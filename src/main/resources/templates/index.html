@@ -14,7 +14,6 @@
             <td>Servings</td>
             <td>Difficulty</td>
             <td>Categories</td>
-            <td>Notes</td>
         </tr>
         <tr th:each="recipe : ${recipies}">
             <td th:text="${recipe.description}"/>
@@ -22,8 +21,7 @@
             <td th:text="${recipe.prepTime}"/>
             <td th:text="${recipe.serving}"/>
             <td th:text="${recipe.difficulty}"/>
-            <td> <div th:each="category : ${recipe.categories}"> <div th:text="${category.description}"/></div> </td>
-            <td th:text="${recipe.notes.notes}"/>
+            <td th:text="${recipe.categories}"/>
         </tr>
     </table>
 </body>
