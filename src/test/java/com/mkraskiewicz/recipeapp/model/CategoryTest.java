@@ -18,7 +18,7 @@ public class CategoryTest {
     }
 
     @Test
-    public void getId() {
+    public void getIdTest() {
         Long idValue = 2l;
 
         category.setId(idValue);
