@@ -1,5 +1,6 @@
 package com.mkraskiewicz.recipeapp.services;
 
+import com.mkraskiewicz.recipeapp.commands.RecipeCommand;
 import com.mkraskiewicz.recipeapp.model.Recipe;
 
 import java.util.Set;
@@ -12,4 +13,6 @@ public interface RecipeService {
     Set<Recipe> getAllRecipes();
 
     Recipe findById(long id);
+
+    RecipeCommand saveRecipeCommand(RecipeCommand recipeCommand);
 }
