@@ -16,13 +16,12 @@
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous" th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
 </head>
-
+<!--/*@thymesVar id="recipe" type="com.mkraskiewicz.recipeapp.model.Recipe"*/-->
 <body>
     <div class="container-fluid" style="margin-top: 20px">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div class="panel-group">
-                    <!--/*@thymesVar id="recipe" type="com.mkraskiewicz.recipeapp.model.Recipe"*/-->
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <h1 class="panel-title" th:text="${recipe.description}">Recipe Description Here!</h1>
@@ -65,7 +64,7 @@
                                 <h5>Servings:</h5>
                             </div>
                             <div class="col-md-3">
-                                <p th:text="${recipe.serving}">4</p>
+                                <p th:text="${recipe.servings}">4</p>
                             </div>
                         </div>
                         <div class="row">
