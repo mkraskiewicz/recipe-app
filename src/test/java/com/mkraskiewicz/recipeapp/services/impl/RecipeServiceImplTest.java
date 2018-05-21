@@ -25,6 +25,8 @@ public class RecipeServiceImplTest {
 
     RecipeServiceImpl recipeService;
 
+    public static final Long RECIPE_ID = 2L;
+
     @Mock
     RecipeRepository recipeRepository;
 
@@ -45,13 +47,12 @@ public class RecipeServiceImplTest {
     @Test
     public void getRecipeByIdTest(){
 
-        long expectedId = 1L;
         Recipe recipe = new Recipe();
-        recipe.setId(1L);
+        recipe.setId(RECIPE_ID);
         Optional<Recipe> recipeOptional = Optional.of(recipe);
 
         when(recipeRepository.findById(anyLong())).thenReturn(recipeOptional);
-        Recipe foundRecipe = recipeService.findById(expectedId);
+        Recipe foundRecipe = recipeService.findById(RECIPE_ID);
 
         assertNotNull("Null object returned", foundRecipe);
         assertEquals(foundRecipe.getId(),recipe.getId());
@@ -73,5 +74,15 @@ public class RecipeServiceImplTest {
 
         assertEquals(recipes.size(),1);
         verify(recipeRepository, times(1)).findAll();
+    }
+
+    @Test
+    public void deleteTest() throws Exception{
+
+        recipeService.deleteById(RECIPE_ID);
+
+        verify(recipeRepository, times(1)).deleteById(anyLong());
+
+
     }
 }
