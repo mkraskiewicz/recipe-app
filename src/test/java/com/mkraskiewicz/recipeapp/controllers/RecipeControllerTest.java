@@ -25,7 +25,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  */
 public class RecipeControllerTest {
 
-    public static final Long RECIPE_ID = 2L;
+    static final Long RECIPE_ID = 2L;
 
     RecipeController recipeController;
 
