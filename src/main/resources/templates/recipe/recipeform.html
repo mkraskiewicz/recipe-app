@@ -20,6 +20,8 @@
 <!--/*@thymesVar id="recipe" type="com.mkraskiewicz.recipeapp.model.Recipe"*/-->
 <!--/*@thymesVar id="ingredient" type="com.mkraskiewicz.recipeapp.model.Ingredient"*/-->
 <!--/*@thymesVar id="notes" type="com.mkraskiewicz.recipeapp.model.Note"*/-->
+<!--/*@thymesVar id="notes" type="com.mkraskiewicz.recipeapp.enums.Difficulty"*/-->
+
 <div class="container-fluid" style="margin-top: 20px">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
@@ -67,7 +69,12 @@
                                 </div>
                                 <div class="col-md-3 form-group">
                                     <label>Difficulty:</label>
-                                    <select class="form-control">
+                                    <select class="form-control" th:field="*{difficulty}">
+                                        <option th:each="difficultyValue : ${T(com.mkraskiewicz.recipeapp.enums.Difficulty).values()}"
+                                                th:value="${difficultyValue.name()}"
+                                                th:text="${difficultyValue.name()}" >val</option>
+                                    </select>
+                                    <select class="form-control" th:remove="all">
                                         <option>Easy</option>
                                         <option>Medium</option>
                                         <option>Hard</option>
