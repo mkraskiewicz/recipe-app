@@ -3,6 +3,7 @@ package com.mkraskiewicz.recipeapp.services.impl;
 import com.mkraskiewicz.recipeapp.commands.RecipeCommand;
 import com.mkraskiewicz.recipeapp.converters.RecipeCommandToRecipe;
 import com.mkraskiewicz.recipeapp.converters.RecipeToRecipeCommand;
+import com.mkraskiewicz.recipeapp.exceptions.NotFoundException;
 import com.mkraskiewicz.recipeapp.model.Recipe;
 import com.mkraskiewicz.recipeapp.repositories.RecipeRepository;
 import com.mkraskiewicz.recipeapp.services.RecipeService;
@@ -45,7 +46,7 @@ public class RecipeServiceImpl implements RecipeService {
         Optional<Recipe> recipeOptional = recipeRepository.findById(id);
 
         if(!recipeOptional.isPresent()){
-            throw new RuntimeException("Recipe not found.");
+            throw new NotFoundException("Recipe not found for ID:" + id.toString());
         }
 
         return recipeOptional.get();
@@ -67,7 +68,7 @@ public class RecipeServiceImpl implements RecipeService {
         Optional<Recipe> recipeOptional = recipeRepository.findById(id);
 
         if(!recipeOptional.isPresent()){
-            throw new RuntimeException("Recipe not found.");
+            throw new NotFoundException("Recipe not found for  id:" + id.toString());
         }
 
         return recipeToRecipeCommand.convert(recipeOptional.get());

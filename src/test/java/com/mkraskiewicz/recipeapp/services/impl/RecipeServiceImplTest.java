@@ -2,6 +2,7 @@ package com.mkraskiewicz.recipeapp.services.impl;
 
 import com.mkraskiewicz.recipeapp.converters.RecipeCommandToRecipe;
 import com.mkraskiewicz.recipeapp.converters.RecipeToRecipeCommand;
+import com.mkraskiewicz.recipeapp.exceptions.NotFoundException;
 import com.mkraskiewicz.recipeapp.model.Recipe;
 import com.mkraskiewicz.recipeapp.repositories.RecipeRepository;
 import org.junit.Before;
@@ -82,6 +83,15 @@ public class RecipeServiceImplTest {
         recipeService.deleteById(RECIPE_ID);
 
         verify(recipeRepository, times(1)).deleteById(anyLong());
+    }
+
+    @Test(expected = NotFoundException.class)
+    public void getRecipeByIdNotFound() throws Exception{
+
+        Optional<Recipe> recipeOptional = Optional.empty();
+        when(recipeRepository.findById(anyLong())).thenReturn(recipeOptional);
+
+        Recipe returnedRecipe = recipeService.findById(1l);
 
 
     }

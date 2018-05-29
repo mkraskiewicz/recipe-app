@@ -26,9 +26,12 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-md-3">
-                                    <h1 class="panel-title" th:text="${recipe.description}">Recipe Description Here!</h1>
+                                    <h1 class="panel-title">Recipe Information</h1>
                                 </div>
-
+                                <div class="col-md-1">
+                                    <a class="btn btn-default" href="#"
+                                       th:href="@{'/recipe/' + ${recipe.id} + '/image'}" role="button">Change Image</a>
+                                </div>
                             </div>
                         </div>
                     <div class="panel-body">
