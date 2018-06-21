@@ -27,10 +27,20 @@ public class UnitOfMeasureRepositoryIT {
     }
 
     @Test
-    public void findByDescription() {
+    public void findByDescription() throws Exception {
 
-        String measure = "Cup";
-        Optional<UnitOfMeasure> unitOfMeasure = unitOfMeasureRepository.findUnitOfMeasureByDescription(measure);
-        assertEquals(measure, unitOfMeasure.get().getDescription());
+        Iterable<UnitOfMeasure> a = unitOfMeasureRepository.findAll();
+        Optional<UnitOfMeasure> uomOptional = unitOfMeasureRepository.findUnitOfMeasureByDescription("Teaspoon");
+
+        assertEquals("Teaspoon", uomOptional.get().getDescription());
     }
+
+    @Test
+    public void findByDescriptionCup() throws Exception {
+
+        Optional<UnitOfMeasure> uomOptional = unitOfMeasureRepository.findUnitOfMeasureByDescription("Cup");
+
+        assertEquals("Cup", uomOptional.get().getDescription());
+    }
+
 }
